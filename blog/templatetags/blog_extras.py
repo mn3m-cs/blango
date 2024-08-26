@@ -31,8 +31,8 @@ def author_details(author, current_user=None):
 
 
 @register.simple_tag
-def row():
-    return format_html('<div class="row">')
+def row(css_class=''):
+    return format_html(f'<div class="row {css_class}">')
 
 
 @register.simple_tag
