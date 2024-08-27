@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from blog.forms import CommentForm
 
+
 def index(request):
   posts = Post.objects.filter(published_at__lte=timezone.now())
   return render(request, "index.html", {"posts": posts})
