@@ -1,5 +1,5 @@
 from rest_framework import generics, viewsets
-from django.contrib.auth.models import User
+from blango_auth.models import User 
 from blog.api.serializers import TagSerializer, PostSerializer, UserSerializer, PostDetailSerializer
 from blog.models import Post, Tag
 from blog.api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
@@ -33,6 +33,7 @@ class TagViewSet(viewsets.ModelViewSet):
             tag.posts, many=True, context={"request": request}
         )
         return Response(post_serializer.data)
+
 class PostViewSet(viewsets.ModelViewSet):
     permission_classes = [AuthorModifyOrReadOnly | IsAdminUserForObject]
     queryset = Post.objects.all()

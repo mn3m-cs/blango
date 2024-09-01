@@ -53,6 +53,7 @@ class Dev(Configuration):
         "rest_framework.authtoken",
         "drf_yasg",
         "debug_toolbar",
+        "blango_auth",
     ]
 
     MIDDLEWARE = [
@@ -210,7 +211,10 @@ class Dev(Configuration):
       'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
       'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
   ]
-  
+    
+    AUTH_USER_MODEL = "blango_auth.User"
+    
+    
 class Prod(Dev):
     DEBUG = False
     SECRET_KEY = values.SecretValue()

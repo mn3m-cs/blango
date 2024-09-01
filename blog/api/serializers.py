@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from blog.models import Post, Tag, Comment
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from blango_auth.models import User 
 
 class TagField(serializers.SlugRelatedField):
     def to_internal_value(self, data):
